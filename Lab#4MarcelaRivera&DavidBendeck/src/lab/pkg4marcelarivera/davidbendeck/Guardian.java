@@ -40,9 +40,13 @@ public class Guardian extends Jugador{
     public String toString() {
         return "Guardian{" + "reflejos=" + reflejos + ", habilidad=" + habilidad + '}';
     }
+    public void modoDeJuego(){
+        
+    }
     
-    
-    
+     public  void trampa(){
+        
+    }
     
     
 }

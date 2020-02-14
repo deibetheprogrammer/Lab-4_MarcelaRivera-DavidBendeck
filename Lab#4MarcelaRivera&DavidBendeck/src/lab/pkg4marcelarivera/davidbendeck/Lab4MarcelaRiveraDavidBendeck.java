@@ -34,7 +34,6 @@ public class Lab4MarcelaRiveraDavidBendeck {
                             + "Su elección:");
                     op = leer.nextInt();
                     vs = leer.nextLine();
-                    
                     switch(op) {
                         case 1:
                             System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
@@ -283,7 +282,6 @@ public class Lab4MarcelaRiveraDavidBendeck {
     
     
     public static void modificar(int posi){
-    
                 System.out.println("1.Modificar casa\n2.Modificar Capitan\n3.Modificar un jugador");
                 int sp=leer.nextInt();
                 switch(sp){
@@ -320,6 +318,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
                                 case 1:
                                     System.out.println("Nuevo nombre: ");
                                     nombre=leer.next();
+                                    nombre=leer.next();
                                     (equipos.get(posi)).getJugadores().get(possi).setNombre(nombre);
                                     break;
                                 case 2:
@@ -331,6 +330,17 @@ public class Lab4MarcelaRiveraDavidBendeck {
                         break;
                        
                 }
+    }
+    
+    public static void jugar(){
+        int cont=0;
+        for (Equipo equipo : equipos) {
+            System.out.println(cont+" "+equipo.getCasa());
+            cont++;
+        }
+        System.out.println("Ingrese la posicion con la casa que desea jugar: ");
+        int posi=leer.nextInt();
+        
     }
     
     

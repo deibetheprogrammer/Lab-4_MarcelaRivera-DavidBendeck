@@ -64,8 +64,8 @@ public abstract class Jugador {
     
     
     
-  //  public abstract void modoDeJuego();
-  //  public abstract void trampa();
+    public abstract void modoDeJuego();
+    public abstract void trampa();
     
 }
 

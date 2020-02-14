@@ -65,7 +65,11 @@ return        this.agilidad = reflejos+7;
         this.r = r;
     }
    
-    
-   
+    public void modoDeJuego(){
+        
+    }
+    public  void trampa(){
+        
+    }
     
 }

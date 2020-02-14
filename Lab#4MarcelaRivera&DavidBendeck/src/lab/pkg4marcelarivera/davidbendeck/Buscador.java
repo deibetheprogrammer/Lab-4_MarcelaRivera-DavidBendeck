@@ -39,7 +39,13 @@ public class Buscador extends Jugador{
     public String toString() {
         return "Buscador{" + "peso=" + peso + ", velocidad=" + velocidad + '}';
     }
-    
+   
+    public void modoDeJuego(){
+        
+    }
+    public  void trampa(){
+        
+    }
     
     
 }

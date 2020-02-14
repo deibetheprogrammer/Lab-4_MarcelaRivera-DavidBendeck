@@ -9,16 +9,16 @@ import java.util.Random;
 
 public class Golpeador extends Jugador {
 
-    private int musculatura, reflejos,fuerza,aguilidad;
+    private int musculatura, reflejos, fuerza, aguilidad;
     Random r = new Random();
 
     public Golpeador(String nombre, int anio, String casa) {
         super(nombre, anio, casa);
         this.musculatura = 1 + r.nextInt(15);
         this.reflejos = 1 + r.nextInt(10);
-        this.fuerza=setFuerza(musculatura);
-        this.aguilidad=setAguilidad(reflejos);
-                
+        this.fuerza = setFuerza(musculatura);
+        this.aguilidad = setAguilidad(reflejos);
+
     }
 
     public int getMusculatura() {
@@ -42,7 +42,7 @@ public class Golpeador extends Jugador {
     }
 
     public int setFuerza(int musculatura) {
-        return this.fuerza = (musculatura*2)-7;
+        return this.fuerza = (musculatura * 2) - 7;
     }
 
     public int getAguilidad() {
@@ -50,7 +50,7 @@ public class Golpeador extends Jugador {
     }
 
     public int setAguilidad(int reflejos) {
-        return this.aguilidad = reflejos+7;
+        return this.aguilidad = reflejos + 7;
     }
 
     public Random getR() {
@@ -65,7 +65,12 @@ public class Golpeador extends Jugador {
     public String toString() {
         return "Golpeador{" + "musculatura=" + musculatura + ", reflejos=" + reflejos + ", fuerza=" + fuerza + ", aguilidad=" + aguilidad + ", r=" + r + '}';
     }
-    
-    
 
+    public void modoDeJuego() {
+
+    }
+
+    public void trampa() {
+
+    }
 }
