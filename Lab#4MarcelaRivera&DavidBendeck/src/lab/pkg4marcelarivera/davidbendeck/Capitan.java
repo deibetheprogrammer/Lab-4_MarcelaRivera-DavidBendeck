@@ -7,11 +7,11 @@ package lab.pkg4marcelarivera.davidbendeck;
 
 /**
  *
- * @author davidbendeck
+ * @author Mvrivera
  */
-public class Guardian extends Jugador{
+public class Capitan extends Jugador{
 
-    public Guardian(String nombre, String anio, String casa) {
+    public Capitan(String nombre, String anio, String casa) {
         super(nombre, anio, casa);
     }
     
