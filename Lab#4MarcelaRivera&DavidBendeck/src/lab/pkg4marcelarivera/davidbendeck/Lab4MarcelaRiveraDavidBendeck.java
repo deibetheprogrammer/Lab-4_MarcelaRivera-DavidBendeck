@@ -5,6 +5,7 @@
  */
 package lab.pkg4marcelarivera.davidbendeck;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -254,13 +255,21 @@ public class Lab4MarcelaRiveraDavidBendeck {
     
     
     
+    ArrayList<Equipo> equipos=new ArrayList();
     
     
     
     
-    
-    public static void modificar(){
-        
+    public static void modificar(int o,int posi){
+        switch(o){
+            case 1:
+                System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
+                casa = leer.nextLine();
+                 //equipos.get(posi).
+                break;
+            case 2:
+                break;
+        }
     }
     
     
