@@ -10,10 +10,39 @@ package lab.pkg4marcelarivera.davidbendeck;
  * @author davidbendeck
  */
 public class Guardian extends Jugador{
+    
+    private double reflejos;
+    private double habilidad;
 
-    public Guardian(String nombre, String anio, String casa) {
+    public Guardian(double reflejos, double habilidad, String nombre, String anio, String casa) {
         super(nombre, anio, casa);
+        this.reflejos = reflejos;   
+        this.habilidad=setHabilidad(reflejos);
     }
+
+    public double getReflejos() {
+        return reflejos;
+    }
+
+    public void setReflejos(double reflejos) {
+        this.reflejos = reflejos;
+    }
+
+    public double getHabilidad() {
+        return habilidad;
+    }
+
+    public double setHabilidad(double reflejos) {
+       return this.habilidad = reflejos+7;
+    }
+
+    @Override
+    public String toString() {
+        return "Guardian{" + "reflejos=" + reflejos + ", habilidad=" + habilidad + '}';
+    }
+    
+    
+    
     
     
 }

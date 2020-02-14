@@ -11,8 +11,35 @@ package lab.pkg4marcelarivera.davidbendeck;
  */
 public class Buscador extends Jugador{
 
-    public Buscador(String nombre, String anio, String casa) {
+    private double peso,velocidad;
+
+    public Buscador(double peso, String nombre, String anio, String casa) {
         super(nombre, anio, casa);
+        this.peso = peso;
+        this.velocidad = 0;
     }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getVelocidad() {
+        return velocidad;
+    }
+
+    public double setVelocidad(double peso) {
+        return this.velocidad = (200/peso)*7;
+    }
+
+    @Override
+    public String toString() {
+        return "Buscador{" + "peso=" + peso + ", velocidad=" + velocidad + '}';
+    }
+    
+    
     
 }
