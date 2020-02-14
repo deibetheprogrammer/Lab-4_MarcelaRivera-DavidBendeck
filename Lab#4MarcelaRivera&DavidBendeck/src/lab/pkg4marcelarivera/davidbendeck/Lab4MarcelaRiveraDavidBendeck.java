@@ -7,6 +7,8 @@ package lab.pkg4marcelarivera.davidbendeck;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,7 +17,8 @@ import java.util.Scanner;
 public class Lab4MarcelaRiveraDavidBendeck {
 
     static Scanner leer = new Scanner(System.in);
-    static String vs,casa;
+    static String vs,casa,nombre;
+    static int anio;
 
     public static void main(String[] args) {
         while (true) {
@@ -35,10 +38,16 @@ public class Lab4MarcelaRiveraDavidBendeck {
                     switch(op) {
                         case 1:
                             System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
-                             casa = leer.nextLine();
+                            casa = leer.nextLine();
                             
+                            try {
+                                equipos.add(new Equipo(casa));
+                            } catch (Exception_Casas ex) {
+                                Logger.getLogger(Lab4MarcelaRiveraDavidBendeck.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                             
                             break;
+
                         case 2:
                             break;
                         case 3:
@@ -60,12 +69,14 @@ public class Lab4MarcelaRiveraDavidBendeck {
                     switch(op) {
                         case 1:
                             System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
-                            String casa = leer.nextLine();
+                            casa = leer.nextLine();
                             
                             System.out.println("Ingrese el nombre: ");
-                            String nombre = leer.nextLine();
+                            nombre = leer.nextLine();
                             
-                            
+                            System.out.println("Ingrese el año: ");
+                            anio = leer.nextInt();
+                            vs = leer.nextLine();
                             
                             break;
                         case 2:
@@ -255,7 +266,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
     
     
     
-    ArrayList<Equipo> equipos=new ArrayList();
+    static ArrayList<Equipo> equipos=new ArrayList();
     
     
     
