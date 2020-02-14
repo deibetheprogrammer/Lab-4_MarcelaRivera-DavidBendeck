@@ -49,6 +49,14 @@ public class Lab4MarcelaRiveraDavidBendeck {
                             break;
 
                         case 2:
+                            int cont=0;
+                            for (Equipo i : equipos) {
+                                System.out.println(cont+" "+i); 
+                                cont++;
+                            }
+                            System.out.println("Ingrese la posicion del equipo que desea modificar: ");
+                            int posi=leer.nextInt();
+                            modificar(posi);
                             break;
                         case 3:
                             break;

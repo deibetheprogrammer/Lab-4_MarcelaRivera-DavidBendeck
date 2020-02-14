@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author davidbendeck
  */
 public class Equipo {
-    private int cant_ganados=0,cant_perdidos=0;
+    private int cant_ganados,cant_perdidos;
     private ArrayList<Jugador> jugadores=new ArrayList();
     private String casa;
     private Jugador capitan;
