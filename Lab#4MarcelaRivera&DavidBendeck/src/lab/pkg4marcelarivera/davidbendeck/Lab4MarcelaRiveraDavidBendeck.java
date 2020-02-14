@@ -253,17 +253,61 @@ public class Lab4MarcelaRiveraDavidBendeck {
     
     
     
-    ArrayList<Equipo> equipos=new ArrayList();
-    
+   static ArrayList<Equipo> equipos=new ArrayList();
     
     
     
     public static void modificar(int o,int posi){
         switch(o){
             case 1:
-                System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
+                System.out.println("1.Modificar casa\n2.Modificar Capitan\n3.Modificar un jugador");
+                int sp=leer.nextInt();
+                switch(sp){
+                    case 1:
+                        System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
                 casa = leer.nextLine();
-                 //equipos.get(posi).
+                (equipos.get(posi)).setCasa(casa);
+                        break;
+                    case 2:
+                        if ((equipos.get(posi)).getJugadores().size()>0){
+                            int cont=0;
+                            for (Object i : (equipos.get(posi).getJugadores())) {
+                                System.out.println(cont +" "+i);
+                                cont++;
+                            }
+                            System.out.println("Ingrese la posicion en la que se encuentra: ");
+                            int possi=leer.nextInt();
+                            (equipos.get(posi)).setCapitan((equipos.get(posi)).getJugadores().get(possi));
+                        }else{
+                            System.out.println("No tenes jugadores prro");
+                        }
+                        break;
+                    case 3:
+                         int cont=0;
+                            for (Object i : (equipos.get(posi).getJugadores())) {
+                                System.out.println(cont +" "+i);
+                                cont++;
+                            }
+                            System.out.println("Ingrese la posicion en la que se encuentra: ");
+                            int possi=leer.nextInt();
+                            System.out.println("1.Modificar nombre\n2.Modificar año que se encuntra\n3.Modificar casa\n4.Modificar numero de uniforme");
+                            int p=leer.nextInt();
+                            switch(p){
+                                case 1:
+                                    System.out.println("Nuevo nombre: ");
+                                    
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    break;
+                            }
+                        break;
+                        
+                }
+                
                 break;
             case 2:
                 break;

@@ -15,6 +15,7 @@ public class Equipo {
     private int cant_ganados=0,cant_perdidos=0;
     private ArrayList<Jugador> jugadores=new ArrayList();
     private String casa;
+    private Jugador capitan;
     
     public Equipo() {
     }
@@ -28,6 +29,15 @@ public class Equipo {
         }
         
     }
+
+    public Jugador getCapitan() {
+        return capitan;
+    }
+
+    public void setCapitan(Jugador capitan) {
+        this.capitan = capitan;
+    }
+    
 
     public int getCant_ganados() {
         return cant_ganados;
@@ -43,6 +53,14 @@ public class Equipo {
 
     public void setCant_perdidos(int cant_perdidos) {
         this.cant_perdidos = cant_perdidos;
+    }
+
+    public String getCasa() {
+        return casa;
+    }
+
+    public void setCasa(String casa) {
+        this.casa = casa;
     }
 
   
