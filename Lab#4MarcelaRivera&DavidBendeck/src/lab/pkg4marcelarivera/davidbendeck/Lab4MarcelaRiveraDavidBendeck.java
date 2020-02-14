@@ -266,12 +266,11 @@ public class Lab4MarcelaRiveraDavidBendeck {
     
     
     
-<<<<<<< HEAD
+
    static ArrayList<Equipo> equipos=new ArrayList();
-=======
-    static ArrayList<Equipo> equipos=new ArrayList();
+
     
->>>>>>> 14f69768f8352ee1545a755981aa3a8672635880
+
     
     
     
