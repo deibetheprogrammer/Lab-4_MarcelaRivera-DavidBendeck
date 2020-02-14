@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Lab4MarcelaRiveraDavidBendeck {
 
     static Scanner leer = new Scanner(System.in);
-    static String vs;
+    static String vs,casa;
 
     public static void main(String[] args) {
         while (true) {
@@ -34,7 +34,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
                     switch(op) {
                         case 1:
                             System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
-                            String casa = leer.nextLine();
+                             casa = leer.nextLine();
                             
                             
                             break;
@@ -84,4 +84,185 @@ public class Lab4MarcelaRiveraDavidBendeck {
             }
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void modificar(){
+        
+    }
+    
+    
+    
 }
