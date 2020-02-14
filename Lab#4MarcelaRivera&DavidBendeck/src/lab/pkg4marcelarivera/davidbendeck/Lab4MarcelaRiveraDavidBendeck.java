@@ -65,6 +65,8 @@ public class Lab4MarcelaRiveraDavidBendeck {
                             System.out.println("Ingrese el nombre: ");
                             String nombre = leer.nextLine();
                             
+                            
+                            
                             break;
                         case 2:
                             break;
