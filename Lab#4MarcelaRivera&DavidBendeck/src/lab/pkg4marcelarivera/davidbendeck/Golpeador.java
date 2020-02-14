@@ -12,7 +12,7 @@ public class Golpeador extends Jugador {
     private int musculatura, reflejos,fuerza,aguilidad;
     Random r = new Random();
 
-    public Golpeador(String nombre, String anio, String casa) {
+    public Golpeador(String nombre, int anio, String casa) {
         super(nombre, anio, casa);
         this.musculatura = 1 + r.nextInt(15);
         this.reflejos = 1 + r.nextInt(10);

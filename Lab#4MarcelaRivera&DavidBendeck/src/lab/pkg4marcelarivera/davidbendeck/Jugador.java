@@ -15,14 +15,14 @@ public abstract class Jugador {
     Random rand = new Random();
     
     protected String nombre;
-    protected String anio;
+    protected int anio;
     protected String casa;
     protected int numero;
 
     public Jugador() {
     }
 
-    public Jugador(String nombre, String anio, String casa) {
+    public Jugador(String nombre, int anio, String casa) {
         this.nombre = nombre;
         this.anio = anio;
         this.casa = casa;
@@ -38,11 +38,11 @@ public abstract class Jugador {
         this.nombre = nombre;
     }
 
-    public String getAnio() {
+    public int getAnio() {
         return anio;
     }
 
-    public void setAnio(String anio) {
+    public void setAnio(int anio) {
         this.anio = anio;
     }
 

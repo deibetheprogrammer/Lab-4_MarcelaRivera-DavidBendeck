@@ -13,7 +13,7 @@ public class Buscador extends Jugador{
 
     private double peso,velocidad;
 
-    public Buscador(double peso, String nombre, String anio, String casa) {
+    public Buscador(double peso, String nombre, int anio, String casa) {
         super(nombre, anio, casa);
         this.peso = peso;
         this.velocidad = 0;

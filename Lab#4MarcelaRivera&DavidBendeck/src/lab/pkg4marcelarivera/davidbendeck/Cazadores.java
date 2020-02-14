@@ -17,7 +17,7 @@ public class Cazadores extends Jugador{
    private int reflejos;
 
    Random r=new Random();
-    public Cazadores(double peso, String nombre, String anio, String casa) {
+    public Cazadores(double peso, String nombre, int anio, String casa) {
         super(nombre, anio, casa);
         this.peso = peso;
         this.velocidad = setVelocidad(peso);
