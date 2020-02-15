@@ -20,9 +20,9 @@ public class Cazadores extends Jugador{
     public Cazadores(double peso, String nombre, int anio, String casa) {
         super(nombre, anio, casa);
         this.peso = peso;
-        this.velocidad = setVelocidad(peso);
-        this.agilidad = setAgilidad(peso);
+        this.velocidad = (200/peso)*7;
         this.reflejos = 1+r.nextInt(10);
+        this.agilidad = reflejos + 7;
     }
 
     public double getPeso() {
@@ -37,16 +37,16 @@ public class Cazadores extends Jugador{
         return velocidad;
     }
 
-    public double setVelocidad(double peso) {
-       return this.velocidad = (200/peso)*7;
+    public double setVelocidad(double velocidad) {
+       return this.velocidad = velocidad;
     }
 
     public double getAgilidad() {
         return agilidad;
     }
 
-    public double setAgilidad(double reflejos) {
-return        this.agilidad = reflejos+7;
+    public double setAgilidad(double agilidad) {
+        return this.agilidad = agilidad;
     }
 
     public int getReflejos() {
@@ -66,7 +66,7 @@ return        this.agilidad = reflejos+7;
     }
 
     @Override
-    public boolean modoDeJuego(int valor, boolean opcion) {
+    public boolean modoDeJuego(double valor, boolean opcion) {
         if (velocidad + agilidad  >= valor) {
             System.out.printf("%s(%d - %s) Ha intentado meter gol: exitosamente%n", nombre, numero, casa);
             agilidad += 6;

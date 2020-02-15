@@ -62,9 +62,7 @@ public abstract class Jugador {
         this.numero = rand.nextInt(26) + rand.nextInt(26);
     }
     
-    
-    
-    public abstract boolean modoDeJuego(int valor, boolean opcion);
+    public abstract boolean modoDeJuego(double valor, boolean opcion);
     public abstract boolean trampa();
     
 }

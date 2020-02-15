@@ -16,7 +16,7 @@ public class Buscador extends Jugador{
     public Buscador(double peso, String nombre, int anio, String casa) {
         super(nombre, anio, casa);
         this.peso = peso;
-        this.velocidad = setVelocidad(peso);
+        this.velocidad = (200/peso)*7;
     }
 
     public double getPeso() {
@@ -31,8 +31,8 @@ public class Buscador extends Jugador{
         return velocidad;
     }
 
-    public double setVelocidad(double peso) {
-        return this.velocidad = (200/peso)*7;
+    public double setVelocidad(double velocidad) {
+        return this.velocidad = velocidad;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Buscador extends Jugador{
     }
 
     @Override
-    public boolean modoDeJuego(int valor, boolean opcion) {
+    public boolean modoDeJuego(double valor, boolean opcion) {
         if (velocidad/14 + 14 > valor) {
             System.out.printf("%s(%d - %s) Ha intentado capturar la snitch dorada: exitosamente%n",nombre,numero,casa);
             return false;

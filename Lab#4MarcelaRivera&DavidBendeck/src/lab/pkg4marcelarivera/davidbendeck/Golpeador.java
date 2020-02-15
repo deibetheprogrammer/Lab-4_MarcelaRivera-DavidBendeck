@@ -16,8 +16,8 @@ public class Golpeador extends Jugador {
         super(nombre, anio, casa);
         this.musculatura = 1 + r.nextInt(15);
         this.reflejos = 1 + r.nextInt(10);
-        this.fuerza = setFuerza(musculatura);
-        this.aguilidad = setAguilidad(reflejos);
+        this.fuerza = (musculatura*2) -7;
+        this.aguilidad = reflejos + 7;
 
     }
 
@@ -41,16 +41,16 @@ public class Golpeador extends Jugador {
         return fuerza;
     }
 
-    public int setFuerza(int musculatura) {
-        return this.fuerza = (musculatura * 2) - 7;
+    public int setFuerza(int fuerza) {
+        return this.fuerza = fuerza;
     }
 
     public int getAguilidad() {
         return aguilidad;
     }
 
-    public int setAguilidad(int reflejos) {
-        return this.aguilidad = reflejos + 7;
+    public int setAguilidad(int aguilidad) {
+        return this.aguilidad = aguilidad;
     }
 
     public Random getR() {
@@ -67,7 +67,7 @@ public class Golpeador extends Jugador {
     }
 
     @Override
-    public boolean modoDeJuego(int valor, boolean opcion) {
+    public boolean modoDeJuego(double valor, boolean opcion) {
         if (opcion) {
             if (this.fuerza*2+1 > valor) {
                 System.out.printf("%s(%d - %s) Ha intentado atacar: exitosamente%n",nombre,numero,casa);

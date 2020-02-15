@@ -21,7 +21,7 @@ public class Guardian extends Jugador{
     public Guardian(double reflejos, String nombre, int anio, String casa) {
         super(nombre, anio, casa);
         this.reflejos = reflejos;   
-        this.habilidad=setHabilidad(reflejos);
+        this.habilidad= reflejos + 7;
     }
 
     public double getReflejos() {
@@ -36,8 +36,8 @@ public class Guardian extends Jugador{
         return habilidad;
     }
 
-    public double setHabilidad(double reflejos) {
-       return this.habilidad = reflejos+7;
+    public double setHabilidad(double habilidad) {
+       return this.habilidad = habilidad;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Guardian extends Jugador{
     }
     
     @Override
-    public boolean modoDeJuego(int valor, boolean opcion) {
+    public boolean modoDeJuego(double valor, boolean opcion) {
         if (this.habilidad > valor) {
             System.out.printf("%s(%d - %s) Ha intentado atajar un gol: exitosamente%n",nombre,numero,casa);
             this.habilidad += 8;

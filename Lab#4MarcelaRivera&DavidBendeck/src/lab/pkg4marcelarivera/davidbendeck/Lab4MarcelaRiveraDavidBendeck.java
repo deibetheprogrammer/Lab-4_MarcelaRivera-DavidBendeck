@@ -6,6 +6,7 @@
 package lab.pkg4marcelarivera.davidbendeck;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,11 +19,11 @@ public class Lab4MarcelaRiveraDavidBendeck {
 
     static Scanner leer = new Scanner(System.in);
     static String vs, casa, nombre;
-    static int anio,cont1=0,cont2=0,cont3=0,cont4=0;
+    static int anio, cont1 = 0, cont2 = 0, cont3 = 0, cont4 = 0;
     static ArrayList<Equipo> equipos = new ArrayList();
 
-    public static void main(String[] args) throws Exception_JCasas, Exception_CantJu,Exception_CantJCadaPosi {
-      /* equipos.add(new Equipo());
+    public static void main(String[] args) throws Exception_JCasas, Exception_CantJu, Exception_CantJCadaPosi {
+        /* equipos.add(new Equipo());
        equipos.get(0).setCasa("gryffindor");
        equipos.get(0).getJugadores().add(new Guardian(7,"Pablo", 4, "gryffindor"));
        equipos.get(0).getJugadores().add(new Buscador(100.8,"juana", 2, "gryffindor"));
@@ -42,7 +43,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
        equipos.get(1).getJugadores().add(new Golpeador("Petronilooo", 6, "slytherin"));       
        equipos.get(1).getJugadores().add(new Golpeador("Elcacas", 4, "slytherin"));        
 
-       */
+         */
 
         while (true) {
             System.out.println("1.CRUD Equipo\n2.CRUE Jugadores\n3.Simulacion\n4.Salir");
@@ -115,25 +116,25 @@ public class Lab4MarcelaRiveraDavidBendeck {
                     }
                     System.out.println("Ingrese la posicion del equipo: ");
                     int posi = leer.nextInt();
-                    cont1=0;
-                    cont2=0;
-                    cont3=0;
-                    cont4=0;
+                    cont1 = 0;
+                    cont2 = 0;
+                    cont3 = 0;
+                    cont4 = 0;
                     for (Object i : (equipos.get(posi).getJugadores())) {
-                        if (i instanceof Guardian){
+                        if (i instanceof Guardian) {
                             cont1++;
-                        }else if (i instanceof Cazadores){
+                        } else if (i instanceof Cazadores) {
                             cont2++;
-                        }else if (i instanceof Buscador){
+                        } else if (i instanceof Buscador) {
                             cont3++;
-                        }else if (i instanceof Golpeador){
+                        } else if (i instanceof Golpeador) {
                             cont4++;
-                        }  
+                        }
                     }
                     switch (op) {
                         case 1:
                             if ((equipos.get(posi)).getJugadores().size() >= 7) {
-                                
+
                                 throw new Exception_CantJu((equipos.get(posi)).getJugadores().size());
                             } else {
                                 System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
@@ -150,50 +151,49 @@ public class Lab4MarcelaRiveraDavidBendeck {
                                         case 1:
                                             System.out.println("Cuantos reflejos tiene su jugador: ");
                                             double reflejos = leer.nextDouble();
-                                            if (cont1>1){
-                                              System.out.println("Ya ingreso esta posicion");
+                                            if (cont1 > 1) {
+                                                System.out.println("Ya ingreso esta posicion");
                                                 throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
-                                            }else{
-                                            cont1++;
-                                            (equipos.get(posi)).getJugadores().add(new Guardian(reflejos, nombre, anio, casa));    
+                                            } else {
+                                                cont1++;
+                                                (equipos.get(posi)).getJugadores().add(new Guardian(reflejos, nombre, anio, casa));
                                             }
-                                            
-                                            
+
                                             break;
                                         case 2:
                                             System.out.println("Cual es el peso tiene su jugador: ");
                                             double peso = leer.nextDouble();
-                                             if (cont2>3){
-                                                 System.out.println("Ya ingreso esta posicion");
+                                            if (cont2 > 3) {
+                                                System.out.println("Ya ingreso esta posicion");
 
                                                 throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
-                                            }else{
-                                            cont2++;
-                                            (equipos.get(posi)).getJugadores().add(new Cazadores(peso, nombre, anio, casa));     
-                                             }
-                                            
+                                            } else {
+                                                cont2++;
+                                                (equipos.get(posi)).getJugadores().add(new Cazadores(peso, nombre, anio, casa));
+                                            }
+
                                             break;
                                         case 3:
-                                            System.out.println("Cual es el peso tiene su jugador: ");        
+                                            System.out.println("Cual es el peso tiene su jugador: ");
                                             peso = leer.nextDouble();
-                                            if (cont3>1){
+                                            if (cont3 > 1) {
                                                 System.out.println("Ya ingreso esta posicion");
                                                 throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
-                                            }else{
-                                            cont3++;
-                                            (equipos.get(posi)).getJugadores().add(new Buscador(peso, nombre, anio, casa));    
+                                            } else {
+                                                cont3++;
+                                                (equipos.get(posi)).getJugadores().add(new Buscador(peso, nombre, anio, casa));
                                             }
                                             break;
                                         case 4:
-                                            if (cont4>2){
+                                            if (cont4 > 2) {
                                                 System.out.println("Ya ingreso esta posicion");
                                                 throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
-                                            }else{
-                                            cont4++;
-                                            (equipos.get(posi)).getJugadores().add(new Golpeador(nombre, anio, casa));
-     
+                                            } else {
+                                                cont4++;
+                                                (equipos.get(posi)).getJugadores().add(new Golpeador(nombre, anio, casa));
+
                                             }
-                                        break;
+                                            break;
 
                                     }
                                 } else {
@@ -307,265 +307,10 @@ public class Lab4MarcelaRiveraDavidBendeck {
         }
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public static void jugar() throws Exception_CantJu {
+        int puntosA = 0;
+        int puntosB = 0;
+
         int cont = 0;
         for (Equipo equipo : equipos) {
             System.out.println(cont + " " + equipo.getCasa());
@@ -577,7 +322,16 @@ public class Lab4MarcelaRiveraDavidBendeck {
         int poso = leer.nextInt();
         if ((equipos.get(posi)).getJugadores().size() != 7) {
             throw new Exception_CantJu((equipos.get(posi)).getJugadores().size());
+        } else if ((equipos.get(poso)).getJugadores().size() != 7) {
+            throw new Exception_CantJu((equipos.get(poso)).getJugadores().size());
         } else {
+            ArrayList<Jugador> jugadoresJ = equipos.get(posi).getJugadores();
+            ArrayList<Jugador> jugadoresC = equipos.get(poso).getJugadores();
+
+            int noAnotarA = 0;
+            int noAnotarB = 0;
+            int noAtajarA = 0;
+            int noAtajarB = 0;
             while (true) {
                 cont = 0;
                 for (int i = 0; i < (equipos.get(posi)).getJugadores().size(); i++) {
@@ -588,38 +342,158 @@ public class Lab4MarcelaRiveraDavidBendeck {
                 int o = leer.nextInt();
                 System.out.println("1.Jugar normal\n2.Hacer trampa");
                 int p = leer.nextInt();
-                switch (p) {
-                    case 1:
-                        if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("gryffindor")) {
 
-                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("slytherin")) {
-
-                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("ravenclaw")) {
-
-                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("hufflepuff")) {
-
+                Object j1 = equipos.get(posi).getJugadores().get(o);
+                if (j1 instanceof Guardian) {
+                    if (p == 1) {
+                        if (noAtajarA < 1) {
+                            if (!((Guardian) j1).modoDeJuego(velocidadCazadores(equipos.get(poso).getJugadores()), true) == false) {
+                                puntosB += 10;
+                            }
+                        } else {
+                            System.out.println("No puede atajar");
+                            puntosB += 10;
                         }
-                        System.out.println();
-
-                        break;
-
-                    case 2:
-                        if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("gryffindor")) {
-
-                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("slytherin")) {
-
-                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("ravenclaw")) {
-
-                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("hufflepuff")) {
-
+                    } else {
+                        if (((Guardian) j1).trampa()) {
+                            noAnotarB = 3;
+                        } else {
+                            noAtajarA = 3;
                         }
-                        break;
+                    }
+                } else if (j1 instanceof Golpeador) {
+                    if (p == 1) {
+                        boolean action;
+                        System.out.print("Desea:\n"
+                                + "1) Atacar\n"
+                                + "2) Defender\n"
+                                + "Su eleccion:");
+                        int op = leer.nextInt();
+                        vs = leer.nextLine();
+                        if (op == 1) {
+                            action = true;
+                            ((Golpeador) j1).modoDeJuego(fuerzaGolpeadores(jugadoresC), action);
+                        } else {
+                            action = false;
+                            ((Golpeador) j1).modoDeJuego(agilidadGolpeadores(jugadoresC), action);
+                        }
+                    } else {
+                        if (((Golpeador) j1).trampa() == true) {
+                            for (Jugador jugador : jugadoresJ) {
+                                if (jugador instanceof Golpeador) {
+                                    ((Golpeador) jugador).setAguilidad(((Golpeador) jugador).getAguilidad() + 10);
 
+                                }
+                            }
+                        } else {
+                            for (Jugador jugador : jugadoresJ) {
+                                if (jugador instanceof Golpeador) {
+                                    ((Golpeador) jugador).setAguilidad(((Golpeador) jugador).getAguilidad() - 15);
+                                    ((Golpeador) jugador).setFuerza(((Golpeador) jugador).getFuerza() - 10);
+
+                                }
+                            }
+                        }
+
+                    }
+                } else if (j1 instanceof Cazadores) {
+                    if (p == 1) {
+                        if (((Cazadores) j1).modoDeJuego(agilidadGuardian(jugadoresC), true)) {
+                            puntosA += 10;
+                        }
+                    } else {
+                        if (((Cazadores) j1).trampa()) {
+                            for (Jugador jugador : jugadoresJ) {
+                                if (jugador instanceof Cazadores) {
+                                    ((Cazadores) jugador).setAgilidad(((Cazadores) jugador).getAgilidad() + 8);
+                                    ((Cazadores) jugador).setVelocidad(((Cazadores) jugador).getVelocidad() + 5);
+                                }
+                            }
+                        } else {
+                            for (Jugador jugador : jugadoresJ) {
+                                if (jugador instanceof Cazadores) {
+                                    ((Cazadores) jugador).setVelocidad(3);
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                else {
+                    if (p == 1) {
+                        if (((Buscador)j1).modoDeJuego(velocidadBuscador(jugadoresC), true)) {
+                            puntosA = 150;
+                            break;
+                        }
+                    } else {
+                        if (((Buscador)j1).trampa()) {
+                            puntosA = 150;
+                            break;
+                        } else {
+                            puntosB = 150;
+                        }
+                    }
                 }
 
             }
-
         }
+        
+    }
+
+    
+
+    static double velocidadCazadores(ArrayList<Jugador> jugadores) {
+        double velocidad = 1000000;
+        for (Jugador jugador : jugadores) {
+            if (jugador instanceof Cazadores) {
+                if (((Cazadores) jugador).getVelocidad() < velocidad) {
+                    velocidad = ((Cazadores) jugador).getVelocidad();
+                }
+            }
+        }
+        return velocidad;
+    }
+
+    static double fuerzaGolpeadores(ArrayList<Jugador> jugadores) {
+        double fuerza = 0;
+        for (Jugador jugador : jugadores) {
+            if (jugador instanceof Golpeador) {
+                fuerza += ((Golpeador) jugador).getFuerza();
+            }
+        }
+        return fuerza;
+    }
+
+    static double agilidadGolpeadores(ArrayList<Jugador> jugadores) {
+        double agilidad = 1000000;
+        for (Jugador jugador : jugadores) {
+            if (jugador instanceof Golpeador) {
+                if (((Golpeador) jugador).getAguilidad() < agilidad) {
+                    agilidad = ((Golpeador) jugador).getAguilidad();
+                }
+            }
+        }
+        return agilidad;
+    }
+
+    static double agilidadGuardian(ArrayList<Jugador> jugadores) {
+        double agilidad = 0;
+        for (Jugador jugador : jugadores) {
+            if (jugador instanceof Guardian) {
+                agilidad = ((Guardian) jugador).getHabilidad();
+            }
+        }
+        return agilidad;
+    }
+    
+    static double velocidadBuscador(ArrayList<Jugador> jugadores) {
+        double velocidad = 0;
+        for (Jugador jugador : jugadores) {
+            if (jugador instanceof Buscador) {
+                velocidad = ((Buscador) jugador).getVelocidad();
+            }
+        }
+        return velocidad;
     }
 
 }
