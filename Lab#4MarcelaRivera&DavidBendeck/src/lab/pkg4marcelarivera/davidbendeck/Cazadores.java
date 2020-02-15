@@ -64,12 +64,30 @@ return        this.agilidad = reflejos+7;
     public void setR(Random r) {
         this.r = r;
     }
+
+    @Override
+    public boolean modoDeJuego(int valor, boolean opcion) {
+        if (velocidad + agilidad  >= valor) {
+            System.out.printf("%s(%d - %s) Ha intentado meter gol: exitosamente%n", nombre, numero, casa);
+            agilidad += 6;
+            velocidad += 6;        
+            return true;
+        } else {
+            System.out.printf("%s(%d - %s) Ha intentado meter gol: falló%n", nombre, numero, casa);
+            return false;
+        }
+    }
+
+    @Override
+    public boolean trampa() {
+        if (rand.nextInt(100) <= 10) {
+            System.out.printf("%s(%d - %s) Ha intentado hacer trampa: exitosamente%n", nombre, numero, casa);
+            return false;
+        } else {
+            System.out.printf("%s(%d - %s) Ha intentado hacer trampa: falló%n",nombre,numero,casa);
+            return false;
+        }
+    }
    
-    public void modoDeJuego(){
-        
-    }
-    public  void trampa(){
-        
-    }
     
 }

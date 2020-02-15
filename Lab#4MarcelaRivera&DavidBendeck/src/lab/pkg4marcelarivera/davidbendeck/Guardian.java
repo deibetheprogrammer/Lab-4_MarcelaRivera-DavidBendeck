@@ -44,25 +44,30 @@ public class Guardian extends Jugador{
     public String toString() {
         return "Guardian{" + "reflejos=" + reflejos + ", habilidad=" + habilidad + '}';
     }
-<<<<<<< HEAD
     
-    public void modoDeJuego(){
-=======
     @Override
-    public void trampa() {
->>>>>>> 9888883f911fbd99bcfb92e06b62bfb47d59030e
-        
-    }
-
-    @Override
-    public void modoDeJuego(int valor, boolean opcion) {
+    public boolean modoDeJuego(int valor, boolean opcion) {
         if (this.habilidad > valor) {
             System.out.printf("%s(%d - %s) Ha intentado atajar un gol: exitosamente%n",nombre,numero,casa);
             this.habilidad += 8;
+            return true;
         }
         
         else{
             System.out.printf("%s(%d - %s) Ha intentado atajar un gol: falló%n",nombre,numero,casa);
+            return false;
+        }
+    }
+
+    @Override
+    public boolean trampa() {
+        if(rand.nextInt(100) <= 13) {
+            System.out.printf("%s(%d - %s) Ha intentado hacer trampa: exitosamente%n",nombre,numero,casa);
+            return true;
+        }
+        else {
+            System.out.printf("%s(%d - %s) Ha intentado hacer trampa: falló%n",nombre,numero,casa);
+            return false;
         }
     }
     

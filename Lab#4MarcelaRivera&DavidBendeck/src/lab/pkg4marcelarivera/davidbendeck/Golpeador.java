@@ -66,11 +66,39 @@ public class Golpeador extends Jugador {
         return "Golpeador{" + "musculatura=" + musculatura + ", reflejos=" + reflejos + ", fuerza=" + fuerza + ", aguilidad=" + aguilidad + ", r=" + r + '}';
     }
 
-    public void modoDeJuego() {
-
+    @Override
+    public boolean modoDeJuego(int valor, boolean opcion) {
+        if (opcion) {
+            if (this.fuerza*2+1 > valor) {
+                System.out.printf("%s(%d - %s) Ha intentado atacar: exitosamente%n",nombre,numero,casa);
+                this.fuerza += 10;
+                return true;
+            } else {
+                System.out.printf("%s(%d - %s) Ha intentado atacar: falló%n",nombre,numero,casa);
+                return false;
+            }
+        } else {
+            if (this.aguilidad/2 + 7 > valor) {
+                System.out.printf("%s(%d - %s) Ha intentado defender: exitosamente%n",nombre,numero,casa);
+                this.aguilidad += 10;
+                return true;
+            } else {
+                System.out.printf("%s(%d - %s) Ha intentado defender: falló%n", nombre, numero, casa);
+                return false;
+            }
+        }
     }
 
-    public void trampa() {
-
+    @Override
+    public boolean trampa() {
+        if (rand.nextInt(100) <=  22) {
+            System.out.printf("%s(%d - %s) Ha intentado hacer trampa: exitosamente%n",nombre,numero,casa);
+            return true;
+        } else {
+            System.out.printf("%s(%d - %s) Ha intentado hacer trampa: falló%n",nombre,numero,casa);
+            return false;
+        }
     }
+
+  
 }

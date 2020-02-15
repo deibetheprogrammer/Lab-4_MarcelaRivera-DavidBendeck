@@ -39,13 +39,28 @@ public class Buscador extends Jugador{
     public String toString() {
         return "Buscador{" + "peso=" + peso + ", velocidad=" + velocidad + '}';
     }
+
+    @Override
+    public boolean modoDeJuego(int valor, boolean opcion) {
+        if (velocidad/14 + 14 > valor) {
+            System.out.printf("%s(%d - %s) Ha intentado capturar la snitch dorada: exitosamente%n",nombre,numero,casa);
+            return false;
+        } else {
+            System.out.printf("%s(%d - %s) Ha intentado capturar la snitch dorada: falló%n",nombre,numero,casa);
+            return false;
+        }
+    }
+
+    @Override
+    public boolean trampa() {
+        if (rand.nextInt(100) <= 5) {
+            System.out.printf("%s(%d - %s) Ha intentado hacer trampa: exitosamente%n",nombre,numero,casa);
+            return true;
+        } else {
+            System.out.printf("%s(%d - %s) Ha intentado hacer trampa: falló%n",nombre,numero,casa);
+            return false;
+        }
+    }
    
-    public void modoDeJuego(){
-        
-    }
-    public  void trampa(){
-        
-    }
-    
     
 }
