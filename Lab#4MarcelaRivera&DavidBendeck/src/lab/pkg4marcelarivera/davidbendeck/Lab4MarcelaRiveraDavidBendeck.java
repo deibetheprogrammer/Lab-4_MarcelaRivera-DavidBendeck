@@ -24,7 +24,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
     static ArrayList<Equipo> equipos = new ArrayList();
 
     public static void main(String[] args) throws Exception_JCasas, Exception_CantJu, Exception_CantJCadaPosi {
-        /* equipos.add(new Equipo());
+       equipos.add(new Equipo());
        equipos.get(0).setCasa("gryffindor");
        equipos.get(0).getJugadores().add(new Guardian(7,"Pablo", 4, "gryffindor"));
        equipos.get(0).getJugadores().add(new Buscador(100.8,"juana", 2, "gryffindor"));
@@ -44,10 +44,10 @@ public class Lab4MarcelaRiveraDavidBendeck {
        equipos.get(1).getJugadores().add(new Golpeador("Petronilooo", 6, "slytherin"));       
        equipos.get(1).getJugadores().add(new Golpeador("Elcacas", 4, "slytherin"));        
 
-         */
+        
 
         while (true) {
-            System.out.println("1.CRUD Equipo\n2.CRUE Jugadores\n3.Simulacion\n4.Salir");
+            System.out.println("1.CRUD Equipo\n2.CRUE Jugadores\n3.Simulacion\n4.Salir\nSu eleccion:");
             int op = leer.nextInt();
             switch (op) {
                 case 1:
@@ -121,6 +121,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
                     }
                     System.out.println("Ingrese la posicion del equipo: ");
                     int posi = leer.nextInt();
+                    vs = leer.nextLine();
                     cont1 = 0;
                     cont2 = 0;
                     cont3 = 0;
@@ -143,7 +144,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
                                 throw new Exception_CantJu((equipos.get(posi)).getJugadores().size());
                             } else {
                                 System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
-                                casa = leer.nextLine();
+                                casa = leer.nextLine().toLowerCase();
                                 if ((equipos.get(posi).getCasa()).equals(casa)) {
                                     System.out.println("Ingrese el nombre: ");
                                     nombre = leer.nextLine();
@@ -248,11 +249,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
                     break;
                 case 3:
 
-                    cont = 0;
-                    for (Object i : equipos) {
-                        System.out.println(cont + " " + i);
-                        cont++;
-                    }
+                    jugar();
                     break;
                 case 4:
                     System.exit(0);
