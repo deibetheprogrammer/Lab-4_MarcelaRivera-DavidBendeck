@@ -64,7 +64,7 @@ public abstract class Jugador {
     
     
     
-    public abstract void modoDeJuego();
+    public abstract void modoDeJuego(int valor, boolean opcion);
     public abstract void trampa();
     
 }
