@@ -27,13 +27,21 @@ public class Lab4MarcelaRiveraDavidBendeck {
        equipos.get(0).getJugadores().add(new Guardian(7,"Pablo", 4, "gryffindor"));
        equipos.get(0).getJugadores().add(new Buscador(100.8,"juana", 2, "gryffindor"));
        equipos.get(0).getJugadores().add(new Cazadores(150.3,"pedra", 6, "gryffindor"));
+       equipos.get(0).getJugadores().add(new Cazadores(156.3,"KK", 3, "gryffindor"));
+       equipos.get(0).getJugadores().add(new Cazadores(122.2,"benkk", 1, "gryffindor"));
        equipos.get(0).getJugadores().add(new Golpeador("Petronila", 4, "gryffindor"));
+       equipos.get(0).getJugadores().add(new Golpeador("Patricio", 3, "gryffindor"));
+
        equipos.add(new Equipo());
        equipos.get(1).setCasa("slytherin");
        equipos.get(1).getJugadores().add(new Guardian(7,"Pabla", 7, "slytherin"));
        equipos.get(1).getJugadores().add(new Buscador(103.8,"juano", 1, "slytherin"));
        equipos.get(1).getJugadores().add(new Cazadores(130.3,"pedro", 2, "slytherin"));
-       equipos.get(1).getJugadores().add(new Golpeador("Petronilooo", 6, "slytherin"));        
+       equipos.get(1).getJugadores().add(new Cazadores(135.3,"yuda", 5, "slytherin"));
+       equipos.get(1).getJugadores().add(new Cazadores(160.3,"judas", 2, "slytherin"));
+       equipos.get(1).getJugadores().add(new Golpeador("Petronilooo", 6, "slytherin"));       
+       equipos.get(1).getJugadores().add(new Golpeador("Elcacas", 4, "slytherin"));        
+
        */
 
         while (true) {
@@ -142,7 +150,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
                                         case 1:
                                             System.out.println("Cuantos reflejos tiene su jugador: ");
                                             double reflejos = leer.nextDouble();
-                                            if (cont1>0){
+                                            if (cont1>1){
                                               System.out.println("Ya ingreso esta posicion");
                                                 throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
                                             }else{
@@ -155,7 +163,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
                                         case 2:
                                             System.out.println("Cual es el peso tiene su jugador: ");
                                             double peso = leer.nextDouble();
-                                             if (cont2>0){
+                                             if (cont2>3){
                                                  System.out.println("Ya ingreso esta posicion");
 
                                                 throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
@@ -168,7 +176,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
                                         case 3:
                                             System.out.println("Cual es el peso tiene su jugador: ");        
                                             peso = leer.nextDouble();
-                                            if (cont3>0){
+                                            if (cont3>1){
                                                 System.out.println("Ya ingreso esta posicion");
                                                 throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
                                             }else{
@@ -177,7 +185,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
                                             }
                                             break;
                                         case 4:
-                                            if (cont4>0){
+                                            if (cont4>2){
                                                 System.out.println("Ya ingreso esta posicion");
                                                 throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
                                             }else{
