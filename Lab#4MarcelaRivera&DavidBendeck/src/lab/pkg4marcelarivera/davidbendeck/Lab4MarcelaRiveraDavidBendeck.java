@@ -21,7 +21,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
     static int anio;
     static ArrayList<Equipo> equipos = new ArrayList();
 
-    public static void main(String[] args) throws Exception_JCasas,Exception_CantJu{
+    public static void main(String[] args) throws Exception_JCasas, Exception_CantJu {
         while (true) {
             System.out.println("1.CRUD Equipo\n2.CRUE Jugadores\n3.Simulacion\n4.Salir");
             int op = leer.nextInt();
@@ -94,45 +94,43 @@ public class Lab4MarcelaRiveraDavidBendeck {
                     int posi = leer.nextInt();
                     switch (op) {
                         case 1:
-                            if ((equipos.get(posi)).getJugadores().size()>7){
+                            if ((equipos.get(posi)).getJugadores().size() > 7) {
                                 throw new Exception_CantJu((equipos.get(posi)).getJugadores().size());
-                            }else {
-                                
-                            
-                            System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
-                            casa = leer.nextLine();
-                            if ((equipos.get(posi).getCasa()).equals(casa)){
-                            System.out.println("Ingrese el nombre: ");
-                            nombre = leer.nextLine();
-                            System.out.println("Ingrese el año: ");
-                            anio = leer.nextInt();
-                            vs = leer.nextLine();
-                            System.out.println("1.Guardian\n2.Cazador\n3.Buscador\n4.Golpeador");
-                            int p = leer.nextInt();
-                            switch (p) {
-                                case 1:
-                                    System.out.println("Cuantos reflejos tiene su jugador: ");
-                                    double reflejos = leer.nextDouble();
-                                    (equipos.get(posi)).getJugadores().add(new Guardian(reflejos, nombre, anio, casa));
-                                    break;
-                                case 2:
-                                    System.out.println("Cual es el peso tiene su jugador: ");
-                                    double peso = leer.nextDouble();
-                                    (equipos.get(posi)).getJugadores().add(new Cazadores(peso, nombre, anio, casa));
-                                    break;
-                                case 3:
-                                    System.out.println("Cual es el peso tiene su jugador: ");
-                                    peso = leer.nextDouble();
-                                    (equipos.get(posi)).getJugadores().add(new Buscador(peso, nombre, anio, casa));
-                                    break;
-                                case 4:
-                                    (equipos.get(posi)).getJugadores().add(new Golpeador(nombre, anio, casa));
-                                    break;
+                            } else {
+                                System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
+                                casa = leer.nextLine();
+                                if ((equipos.get(posi).getCasa()).equals(casa)) {
+                                    System.out.println("Ingrese el nombre: ");
+                                    nombre = leer.nextLine();
+                                    System.out.println("Ingrese el año: ");
+                                    anio = leer.nextInt();
+                                    vs = leer.nextLine();
+                                    System.out.println("1.Guardian\n2.Cazador\n3.Buscador\n4.Golpeador");
+                                    int p = leer.nextInt();
+                                    switch (p) {
+                                        case 1:
+                                            System.out.println("Cuantos reflejos tiene su jugador: ");
+                                            double reflejos = leer.nextDouble();
+                                            (equipos.get(posi)).getJugadores().add(new Guardian(reflejos, nombre, anio, casa));
+                                            break;
+                                        case 2:
+                                            System.out.println("Cual es el peso tiene su jugador: ");
+                                            double peso = leer.nextDouble();
+                                            (equipos.get(posi)).getJugadores().add(new Cazadores(peso, nombre, anio, casa));
+                                            break;
+                                        case 3:
+                                            System.out.println("Cual es el peso tiene su jugador: ");
+                                            peso = leer.nextDouble();
+                                            (equipos.get(posi)).getJugadores().add(new Buscador(peso, nombre, anio, casa));
+                                            break;
+                                        case 4:
+                                            (equipos.get(posi)).getJugadores().add(new Golpeador(nombre, anio, casa));
+                                            break;
 
-                            }
-                    }else{
-                                throw new Exception_JCasas((equipos.get(posi).getCasa()),casa);
-                            }
+                                    }
+                                } else {
+                                    throw new Exception_JCasas((equipos.get(posi).getCasa()), casa);
+                                }
                             }
                             break;
                         case 2:
@@ -241,7 +239,265 @@ public class Lab4MarcelaRiveraDavidBendeck {
         }
     }
 
-    public static void jugar() throws Exception_CantJu{
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void jugar() throws Exception_CantJu {
         int cont = 0;
         for (Equipo equipo : equipos) {
             System.out.println(cont + " " + equipo.getCasa());
@@ -251,57 +507,50 @@ public class Lab4MarcelaRiveraDavidBendeck {
         int posi = leer.nextInt();
         System.out.println("Ingrese la posicion de la casa contra la que desea jugar: ");
         int poso = leer.nextInt();
-        if ((equipos.get(posi)).getJugadores().size()>7){
-                                throw new Exception_CantJu((equipos.get(posi)).getJugadores().size());
-                            }else{
-            
-        
-        while(true){
-            //Gryffindor, Slytherin, Ravenclaw, Hufflepuff
-             cont = 0;
-            for (int i = 0; i < (equipos.get(posi)).getJugadores().size(); i++) {
-            System.out.println(cont + " " + (equipos.get(posi)).getJugadores().get(i).getNombre());
-            cont++;
-        }
-            System.out.println("Con cual jugador desea jugar(ingrese su posicion)");
-            int o=leer.nextInt();
-            System.out.println("1.Jugar normal\n2.Hacer trampa");
-            int p=leer.nextInt();
-            switch(p){
-                case 1:
-                if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("gryffindor")){
-                    
-                }else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("slytherin")){
-                    
-                }else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("ravenclaw")){
-                    
-                }else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("hufflepuff")){
-                    
+        if ((equipos.get(posi)).getJugadores().size() != 7) {
+            throw new Exception_CantJu((equipos.get(posi)).getJugadores().size());
+        } else {
+            while (true) {
+                cont = 0;
+                for (int i = 0; i < (equipos.get(posi)).getJugadores().size(); i++) {
+                    System.out.println(cont + " " + (equipos.get(posi)).getJugadores().get(i).getNombre());
+                    cont++;
                 }
-                    System.out.println();
-                    
-                    
-                    break;
-                   
-                case 2:
-                     if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("gryffindor")){
-                    
-                }else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("slytherin")){
-                    
-                }else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("ravenclaw")){
-                    
-                }else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("hufflepuff")){
-                    
+                System.out.println("Con cual jugador desea jugar(ingrese su posicion)");
+                int o = leer.nextInt();
+                System.out.println("1.Jugar normal\n2.Hacer trampa");
+                int p = leer.nextInt();
+                switch (p) {
+                    case 1:
+                        if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("gryffindor")) {
+
+                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("slytherin")) {
+
+                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("ravenclaw")) {
+
+                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("hufflepuff")) {
+
+                        }
+                        System.out.println();
+
+                        break;
+
+                    case 2:
+                        if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("gryffindor")) {
+
+                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("slytherin")) {
+
+                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("ravenclaw")) {
+
+                        } else if ((equipos.get(posi).getJugadores().get(o).getCasa()).equals("hufflepuff")) {
+
+                        }
+                        break;
+
                 }
-                    break;
-                    
+
             }
-            
-            
-            
-            
-        }
-        
+
         }
     }
 
