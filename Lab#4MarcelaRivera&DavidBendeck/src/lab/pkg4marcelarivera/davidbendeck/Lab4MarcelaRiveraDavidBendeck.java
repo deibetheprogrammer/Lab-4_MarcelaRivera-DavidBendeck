@@ -63,13 +63,17 @@ public class Lab4MarcelaRiveraDavidBendeck {
                         case 1:
                             System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
                             casa = leer.nextLine();
-                            casa.toLowerCase();
-                            try {
-                                equipos.add(new Equipo(casa));
-                            } catch (Exception_Casas ex) {
-                                Logger.getLogger(Lab4MarcelaRiveraDavidBendeck.class.getName()).log(Level.SEVERE, null, ex);
+                            casa = casa.toLowerCase();
+                            if (equiposExistentes(equipos).indexOf(casa) != -1) {
+                                System.out.println("Equipo ya existente");
                             }
-
+                            else {
+                                try {
+                                    equipos.add(new Equipo(casa));
+                                } catch (Exception_Casas ex) {
+                                    Logger.getLogger(Lab4MarcelaRiveraDavidBendeck.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
                             break;
 
                         case 2:
@@ -263,8 +267,12 @@ public class Lab4MarcelaRiveraDavidBendeck {
         switch (sp) {
             case 1:
                 System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
-                casa = leer.nextLine();
-                (equipos.get(posi)).setCasa(casa);
+                casa = leer.nextLine().toLowerCase();
+                if (equiposExistentes(equipos).indexOf(casa) != -1) {
+                    System.out.println("El equipo de esta casa ya existe");
+                } else {
+                    (equipos.get(posi)).setCasa(casa);
+                }
                 break;
             case 2:
                 if ((equipos.get(posi)).getJugadores().size() > 0) {
@@ -566,9 +574,10 @@ public class Lab4MarcelaRiveraDavidBendeck {
                         System.out.printf("Ha ganado %s contra %s (%d - %d)%n",equipos.get(poso).getCasa(),equipos.get(posi).getCasa(),puntosB,puntosA);
                     }
                 } else {
-                    System.out.println("");
+                    System.out.printf("Gana %s, %s ha sido descalificado (%d - %d)%n",equipos.get(posi).getCasa(),equipos.get(poso).getCasa(),puntosA,puntosB);
                 }
             } else {
+                System.out.printf("Gana %s, %s ha sido descalificado (%d - %d)%n",equipos.get(poso).getCasa(),equipos.get(posi).getCasa(),puntosB,puntosA);
             }
         }
         
@@ -628,6 +637,14 @@ public class Lab4MarcelaRiveraDavidBendeck {
             }
         }
         return velocidad;
+    }
+    
+    static String equiposExistentes(ArrayList<Equipo> equipos) {
+        String casas = "";
+        for (Equipo equipo : equipos) {
+            casas += equipo.getCasa();
+        }
+        return casas;
     }
 
 }
