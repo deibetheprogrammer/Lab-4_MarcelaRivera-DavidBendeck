@@ -7,6 +7,7 @@ package lab.pkg4marcelarivera.davidbendeck;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -308,6 +309,8 @@ public class Lab4MarcelaRiveraDavidBendeck {
     }
 
     public static void jugar() throws Exception_CantJu {
+        Random rand = new Random();
+        
         int puntosA = 0;
         int puntosB = 0;
 
@@ -398,8 +401,10 @@ public class Lab4MarcelaRiveraDavidBendeck {
                     }
                 } else if (j1 instanceof Cazadores) {
                     if (p == 1) {
-                        if (((Cazadores) j1).modoDeJuego(agilidadGuardian(jugadoresC), true)) {
-                            puntosA += 10;
+                        if (noAnotarA < 1) {
+                            if (((Cazadores) j1).modoDeJuego(agilidadGuardian(jugadoresC), true)) {
+                                puntosA += 10;
+                            }
                         }
                     } else {
                         if (((Cazadores) j1).trampa()) {
@@ -422,19 +427,148 @@ public class Lab4MarcelaRiveraDavidBendeck {
                 else {
                     if (p == 1) {
                         if (((Buscador)j1).modoDeJuego(velocidadBuscador(jugadoresC), true)) {
-                            puntosA = 150;
+                            puntosA += 150;
                             break;
                         }
                     } else {
                         if (((Buscador)j1).trampa()) {
-                            puntosA = 150;
+                            puntosA += 150;
                             break;
                         } else {
-                            puntosB = 150;
+                            puntosB += 150;
+                            puntosA = -1;
+                            break;
                         }
                     }
                 }
+                
+                for (Jugador jugador : jugadoresJ) {
+                    if (jugador instanceof Buscador) {
+                        ((Buscador) jugador).setVelocidad(((Buscador) jugador).getVelocidad()+1);
+                    }
+                }
+                
+                //Turno de la máquina
+                
+                o = rand.nextInt(7);
+                p = 1 + rand.nextInt(2);
+                
+                j1= equipos.get(poso).getJugadores().get(o);
+                if (j1 instanceof Guardian) {
+                    if (p == 1) {
+                        if (noAtajarB < 1) {
+                            if (!((Guardian) j1).modoDeJuego(velocidadCazadores(equipos.get(posi).getJugadores()), true) == false) {
+                                puntosA += 10;
+                            }
+                        } else {
+                            System.out.println("No puede atajar");
+                            puntosA += 10;
+                        }
+                    } else {
+                        if (((Guardian) j1).trampa()) {
+                            noAnotarA = 3;
+                        } else {
+                            noAtajarB = 3;
+                        }
+                    }
+                } else if (j1 instanceof Golpeador) {
+                    if (p == 1) {
+                        boolean action;
+                        
+                        int op = 1 + rand.nextInt(1);
+                        
+                        if (op == 1) {
+                            action = true;
+                            ((Golpeador) j1).modoDeJuego(fuerzaGolpeadores(jugadoresJ), action);
+                        } else {
+                            action = false;
+                            ((Golpeador) j1).modoDeJuego(agilidadGolpeadores(jugadoresJ), action);
+                        }
+                    } else {
+                        if (((Golpeador) j1).trampa() == true) {
+                            for (Jugador jugador : jugadoresC) {
+                                if (jugador instanceof Golpeador) {
+                                    ((Golpeador) jugador).setAguilidad(((Golpeador) jugador).getAguilidad() + 10);
 
+                                }
+                            }
+                        } else {
+                            for (Jugador jugador : jugadoresC) {
+                                if (jugador instanceof Golpeador) {
+                                    ((Golpeador) jugador).setAguilidad(((Golpeador) jugador).getAguilidad() - 15);
+                                    ((Golpeador) jugador).setFuerza(((Golpeador) jugador).getFuerza() - 10);
+
+                                }
+                            }
+                        }
+
+                    }
+                } else if (j1 instanceof Cazadores) {
+                    if (p == 1) {
+                        if (noAnotarB < 3) {
+                            if (((Cazadores) j1).modoDeJuego(agilidadGuardian(jugadoresJ), true)) {
+                                puntosA += 10;
+                            }
+                        }
+                    } else {
+                        if (((Cazadores) j1).trampa()) {
+                            for (Jugador jugador : jugadoresC) {
+                                if (jugador instanceof Cazadores) {
+                                    ((Cazadores) jugador).setAgilidad(((Cazadores) jugador).getAgilidad() + 8);
+                                    ((Cazadores) jugador).setVelocidad(((Cazadores) jugador).getVelocidad() + 5);
+                                }
+                            }
+                        } else {
+                            for (Jugador jugador : jugadoresC) {
+                                if (jugador instanceof Cazadores) {
+                                    ((Cazadores) jugador).setVelocidad(3);
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                else {
+                    if (p == 1) {
+                        if (((Buscador)j1).modoDeJuego(velocidadBuscador(jugadoresJ), true)) {
+                            puntosB += 150;
+                            break;
+                        }
+                    } else {
+                        if (((Buscador)j1).trampa()) {
+                            puntosB += 150;
+                            break;
+                        } else {
+                            puntosA += 150;
+                            puntosB = -1;
+                            break;
+                        }
+                    }
+                }
+                
+                for (Jugador jugador : jugadoresC) {
+                    if (jugador instanceof Buscador) {
+                        ((Buscador) jugador).setVelocidad(((Buscador) jugador).getVelocidad()+1);
+                    }
+                }
+                
+                noAnotarA--;
+                noAtajarA--;
+                noAnotarB--;
+                noAtajarB--;
+            }
+            
+            if (puntosA > 0) {
+                if (puntosB > 0) {
+                    if (puntosA > puntosB) {
+                        System.out.printf("Ha ganado %s contra %s (%d - %d)%n",equipos.get(posi).getCasa(),equipos.get(poso).getCasa(),puntosA,puntosB);
+                    } else {
+                        System.out.printf("Ha ganado %s contra %s (%d - %d)%n",equipos.get(poso).getCasa(),equipos.get(posi).getCasa(),puntosB,puntosA);
+                    }
+                } else {
+                    System.out.println("");
+                }
+            } else {
             }
         }
         
