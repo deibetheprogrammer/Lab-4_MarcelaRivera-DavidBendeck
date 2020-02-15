@@ -17,8 +17,9 @@ import java.util.logging.Logger;
 public class Lab4MarcelaRiveraDavidBendeck {
 
     static Scanner leer = new Scanner(System.in);
-    static String vs,casa,nombre;
+    static String vs, casa, nombre;
     static int anio;
+    static ArrayList<Equipo> equipos = new ArrayList();
 
     public static void main(String[] args) {
         while (true) {
@@ -34,32 +35,44 @@ public class Lab4MarcelaRiveraDavidBendeck {
                             + "Su elección:");
                     op = leer.nextInt();
                     vs = leer.nextLine();
-                    switch(op) {
+                    switch (op) {
                         case 1:
                             System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
                             casa = leer.nextLine();
-                            
                             try {
                                 equipos.add(new Equipo(casa));
                             } catch (Exception_Casas ex) {
                                 Logger.getLogger(Lab4MarcelaRiveraDavidBendeck.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            
+
                             break;
 
                         case 2:
-                            int cont=0;
+                            int cont = 0;
                             for (Equipo i : equipos) {
-                                System.out.println(cont+" "+i); 
+                                System.out.println(cont + " " + i);
                                 cont++;
                             }
                             System.out.println("Ingrese la posicion del equipo que desea modificar: ");
-                            int posi=leer.nextInt();
+                            int posi = leer.nextInt();
                             modificar(posi);
                             break;
                         case 3:
+                            cont = 0;
+                            for (Equipo i : equipos) {
+                                System.out.println(cont + " " + i);
+                                cont++;
+                            }
+                            System.out.println("Ingrese la posicion del equipo que desea eliminar: ");
+                            posi = leer.nextInt();
+                            equipos.remove(posi);
                             break;
                         case 4:
+                            cont = 0;
+                            for (Equipo i : equipos) {
+                                System.out.println(cont + " " + i);
+                                cont++;
+                            }
                             break;
                     }
                     break;
@@ -72,30 +85,95 @@ public class Lab4MarcelaRiveraDavidBendeck {
                             + "Su elección:");
                     op = leer.nextInt();
                     vs = leer.nextLine();
-                    
-                    switch(op) {
+                    int cont = 0;
+                    for (Equipo i : equipos) {
+                        System.out.println(cont + " " + i);
+                        cont++;
+                    }
+                    System.out.println("Ingrese la posicion del equipo: ");
+                    int posi = leer.nextInt();
+                    switch (op) {
                         case 1:
+
                             System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
                             casa = leer.nextLine();
-                            
                             System.out.println("Ingrese el nombre: ");
                             nombre = leer.nextLine();
-                            
                             System.out.println("Ingrese el año: ");
                             anio = leer.nextInt();
                             vs = leer.nextLine();
-                            
+                            System.out.println("1.Guardian\n2.Cazador\n3.Buscador\n4.Golpeador");
+                            int p = leer.nextInt();
+                            switch (p) {
+                                case 1:
+                                    System.out.println("Cuantos reflejos tiene su jugador: ");
+                                    double reflejos = leer.nextDouble();
+                                    (equipos.get(posi)).getJugadores().add(new Guardian(reflejos, nombre, anio, casa));
+                                    break;
+                                case 2:
+                                    System.out.println("Cual es el peso tiene su jugador: ");
+                                    double peso = leer.nextDouble();
+                                    (equipos.get(posi)).getJugadores().add(new Cazadores(peso, nombre, anio, casa));
+                                    break;
+                                case 3:
+                                    System.out.println("Cual es el peso tiene su jugador: ");
+                                    peso = leer.nextDouble();
+                                    (equipos.get(posi)).getJugadores().add(new Buscador(peso, nombre, anio, casa));
+                                    break;
+                                case 4:
+                                    (equipos.get(posi)).getJugadores().add(new Golpeador(nombre, anio, casa));
+                                    break;
+
+                            }
+
                             break;
                         case 2:
+                            cont = 0;
+                            for (Object i : (equipos.get(posi).getJugadores())) {
+                                System.out.println(cont + " " + i);
+                                cont++;
+                            }
+                            System.out.println("Ingrese la posicion en la que se encuentra: ");
+                            int possi = leer.nextInt();
+                            System.out.println("1.Modificar nombre\n2.Modificar año que se encuntra\n");
+                            p = leer.nextInt();
+                            switch (p) {
+                                case 1:
+                                    System.out.println("Nuevo nombre: ");
+                                    nombre = leer.next();
+                                    nombre = leer.next();
+                                    (equipos.get(posi)).getJugadores().get(possi).setNombre(nombre);
+                                    break;
+                                case 2:
+                                    System.out.println("Nuevo Año: ");
+                                    anio = leer.nextInt();
+                                    (equipos.get(posi)).getJugadores().get(possi).setAnio(anio);
+                                    break;
+                            }
                             break;
                         case 3:
+                            cont = 0;
+                            for (Object i : (equipos.get(posi).getJugadores())) {
+                                System.out.println(cont + " " + i);
+                                cont++;
+                            }
+                            System.out.println("Ingrese la posicion en la que se encuentra: ");
+                            possi = leer.nextInt();
+
+                            (equipos.get(posi)).getJugadores().remove(possi);
                             break;
                         case 4:
                             break;
                     }
-      
+
                     break;
                 case 3:
+
+                    cont = 0;
+                    for (Object i : equipos) {
+                        System.out.println(cont + " " + i);
+                        cont++;
+                    }
                     break;
                 case 4:
                     System.exit(0);
@@ -103,246 +181,85 @@ public class Lab4MarcelaRiveraDavidBendeck {
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-   static ArrayList<Equipo> equipos=new ArrayList();
-
-    
-
-    
-    
-    
-    public static void modificar(int posi){
-                System.out.println("1.Modificar casa\n2.Modificar Capitan\n3.Modificar un jugador");
-                int sp=leer.nextInt();
-                switch(sp){
-                    case 1:
-                        System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
+    public static void modificar(int posi) {
+        System.out.println("1.Modificar casa\n2.Modificar Capitan\n3.Modificar un jugador");
+        int sp = leer.nextInt();
+        switch (sp) {
+            case 1:
+                System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
                 casa = leer.nextLine();
                 (equipos.get(posi)).setCasa(casa);
+                break;
+            case 2:
+                if ((equipos.get(posi)).getJugadores().size() > 0) {
+                    int cont = 0;
+                    for (Object i : (equipos.get(posi).getJugadores())) {
+                        System.out.println(cont + " " + i);
+                        cont++;
+                    }
+                    System.out.println("Ingrese la posicion en la que se encuentra: ");
+                    int possi = leer.nextInt();
+                    (equipos.get(posi)).setCapitan((equipos.get(posi)).getJugadores().get(possi));
+                } else {
+                    System.out.println("No tenes jugadores prro");
+                }
+                break;
+            case 3:
+                int cont = 0;
+                for (Object i : (equipos.get(posi).getJugadores())) {
+                    System.out.println(cont + " " + i);
+                    cont++;
+                }
+                System.out.println("Ingrese la posicion en la que se encuentra: ");
+                int possi = leer.nextInt();
+                System.out.println("1.Modificar nombre\n2.Modificar año que se encuntra\n");
+                int p = leer.nextInt();
+                switch (p) {
+                    case 1:
+                        System.out.println("Nuevo nombre: ");
+                        nombre = leer.next();
+                        nombre = leer.next();
+                        (equipos.get(posi)).getJugadores().get(possi).setNombre(nombre);
                         break;
                     case 2:
-                        if ((equipos.get(posi)).getJugadores().size()>0){
-                            int cont=0;
-                            for (Object i : (equipos.get(posi).getJugadores())) {
-                                System.out.println(cont +" "+i);
-                                cont++;
-                            }
-                            System.out.println("Ingrese la posicion en la que se encuentra: ");
-                            int possi=leer.nextInt();
-                            (equipos.get(posi)).setCapitan((equipos.get(posi)).getJugadores().get(possi));
-                        }else{
-                            System.out.println("No tenes jugadores prro");
-                        }
+                        System.out.println("Nuevo Año: ");
+                        anio = leer.nextInt();
+                        (equipos.get(posi)).getJugadores().get(possi).setAnio(anio);
                         break;
-                    case 3:
-                         int cont=0;
-                            for (Object i : (equipos.get(posi).getJugadores())) {
-                                System.out.println(cont +" "+i);
-                                cont++;
-                            }
-                            System.out.println("Ingrese la posicion en la que se encuentra: ");
-                            int possi=leer.nextInt();
-                            System.out.println("1.Modificar nombre\n2.Modificar año que se encuntra\n");
-                            int p=leer.nextInt();
-                            switch(p){
-                                case 1:
-                                    System.out.println("Nuevo nombre: ");
-                                    nombre=leer.next();
-                                    nombre=leer.next();
-                                    (equipos.get(posi)).getJugadores().get(possi).setNombre(nombre);
-                                    break;
-                                case 2:
-                                    System.out.println("Nuevo Año: ");
-                                    anio=leer.nextInt();
-                                    (equipos.get(posi)).getJugadores().get(possi).setAnio(anio);
-                                    break;
-                            }
-                        break;
-                       
                 }
+                break;
+
+        }
     }
-    
-    public static void jugar(){
-        int cont=0;
+
+    public static void jugar() {
+        int cont = 0;
         for (Equipo equipo : equipos) {
-            System.out.println(cont+" "+equipo.getCasa());
+            System.out.println(cont + " " + equipo.getCasa());
             cont++;
         }
-        System.out.println("Ingrese la posicion con la casa que desea jugar: ");
-        int posi=leer.nextInt();
+        System.out.println("Ingrese la posicion de la casa que desea jugar: ");
+        int posi = leer.nextInt();
+        System.out.println("Ingrese la posicion de la casa contra la que desea jugar: ");
+        int pposi = leer.nextInt();
+        while(true){
+            System.out.println("1.Jugar normal\n2.Hacer trampa");
+            int p=leer.nextInt();
+            switch(p){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                    
+            }
+            
+            
+            
+            
+        }
         
+
     }
-    
-    
-    
+
 }

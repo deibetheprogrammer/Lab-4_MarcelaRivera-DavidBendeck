@@ -16,7 +16,7 @@ public class Buscador extends Jugador{
     public Buscador(double peso, String nombre, int anio, String casa) {
         super(nombre, anio, casa);
         this.peso = peso;
-        this.velocidad = 0;
+        this.velocidad = setVelocidad(peso);
     }
 
     public double getPeso() {

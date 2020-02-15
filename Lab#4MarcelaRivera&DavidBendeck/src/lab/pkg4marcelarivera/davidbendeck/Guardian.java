@@ -14,7 +14,11 @@ public class Guardian extends Jugador{
     private double reflejos;
     private double habilidad;
 
-    public Guardian(double reflejos, double habilidad, String nombre, int anio, String casa) {
+    public Guardian() {
+    }
+
+    
+    public Guardian(double reflejos, String nombre, int anio, String casa) {
         super(nombre, anio, casa);
         this.reflejos = reflejos;   
         this.habilidad=setHabilidad(reflejos);
@@ -40,6 +44,7 @@ public class Guardian extends Jugador{
     public String toString() {
         return "Guardian{" + "reflejos=" + reflejos + ", habilidad=" + habilidad + '}';
     }
+    
     public void modoDeJuego(){
         
     }
