@@ -18,10 +18,10 @@ public class Lab4MarcelaRiveraDavidBendeck {
 
     static Scanner leer = new Scanner(System.in);
     static String vs, casa, nombre;
-    static int anio;
+    static int anio,cont1=0,cont2=0,cont3=0,cont4=0;
     static ArrayList<Equipo> equipos = new ArrayList();
 
-    public static void main(String[] args) throws Exception_JCasas, Exception_CantJu {
+    public static void main(String[] args) throws Exception_JCasas, Exception_CantJu,Exception_CantJCadaPosi {
         while (true) {
             System.out.println("1.CRUD Equipo\n2.CRUE Jugadores\n3.Simulacion\n4.Salir");
             int op = leer.nextInt();
@@ -92,9 +92,25 @@ public class Lab4MarcelaRiveraDavidBendeck {
                     }
                     System.out.println("Ingrese la posicion del equipo: ");
                     int posi = leer.nextInt();
+                    cont1=0;
+                    cont2=0;
+                    cont3=0;
+                    cont4=0;
+                    for (Object i : (equipos.get(posi).getJugadores())) {
+                        if (i instanceof Guardian){
+                            cont1++;
+                        }else if (i instanceof Cazadores){
+                            cont2++;
+                        }else if (i instanceof Buscador){
+                            cont3++;
+                        }else if (i instanceof Golpeador){
+                            cont4++;
+                        }  
+                    }
                     switch (op) {
                         case 1:
-                            if ((equipos.get(posi)).getJugadores().size() > 7) {
+                            if ((equipos.get(posi)).getJugadores().size() >= 7) {
+                                
                                 throw new Exception_CantJu((equipos.get(posi)).getJugadores().size());
                             } else {
                                 System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
@@ -111,21 +127,50 @@ public class Lab4MarcelaRiveraDavidBendeck {
                                         case 1:
                                             System.out.println("Cuantos reflejos tiene su jugador: ");
                                             double reflejos = leer.nextDouble();
-                                            (equipos.get(posi)).getJugadores().add(new Guardian(reflejos, nombre, anio, casa));
+                                            if (cont1>0){
+                                              System.out.println("Ya ingreso esta posicion");
+                                                throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
+                                            }else{
+                                            cont1++;
+                                            (equipos.get(posi)).getJugadores().add(new Guardian(reflejos, nombre, anio, casa));    
+                                            }
+                                            
+                                            
                                             break;
                                         case 2:
                                             System.out.println("Cual es el peso tiene su jugador: ");
                                             double peso = leer.nextDouble();
-                                            (equipos.get(posi)).getJugadores().add(new Cazadores(peso, nombre, anio, casa));
+                                             if (cont2>0){
+                                                 System.out.println("Ya ingreso esta posicion");
+
+                                                throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
+                                            }else{
+                                            cont2++;
+                                            (equipos.get(posi)).getJugadores().add(new Cazadores(peso, nombre, anio, casa));     
+                                             }
+                                            
                                             break;
                                         case 3:
-                                            System.out.println("Cual es el peso tiene su jugador: ");
+                                            System.out.println("Cual es el peso tiene su jugador: ");        
                                             peso = leer.nextDouble();
-                                            (equipos.get(posi)).getJugadores().add(new Buscador(peso, nombre, anio, casa));
+                                            if (cont3>0){
+                                                System.out.println("Ya ingreso esta posicion");
+                                                throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
+                                            }else{
+                                            cont3++;
+                                            (equipos.get(posi)).getJugadores().add(new Buscador(peso, nombre, anio, casa));    
+                                            }
                                             break;
                                         case 4:
+                                            if (cont4>0){
+                                                System.out.println("Ya ingreso esta posicion");
+                                                throw new Exception_CantJCadaPosi(cont1, cont2, cont3, cont4);
+                                            }else{
+                                            cont4++;
                                             (equipos.get(posi)).getJugadores().add(new Golpeador(nombre, anio, casa));
-                                            break;
+     
+                                            }
+                                        break;
 
                                     }
                                 } else {
