@@ -22,6 +22,20 @@ public class Lab4MarcelaRiveraDavidBendeck {
     static ArrayList<Equipo> equipos = new ArrayList();
 
     public static void main(String[] args) throws Exception_JCasas, Exception_CantJu,Exception_CantJCadaPosi {
+      /* equipos.add(new Equipo());
+       equipos.get(0).setCasa("gryffindor");
+       equipos.get(0).getJugadores().add(new Guardian(7,"Pablo", 4, "gryffindor"));
+       equipos.get(0).getJugadores().add(new Buscador(100.8,"juana", 2, "gryffindor"));
+       equipos.get(0).getJugadores().add(new Cazadores(150.3,"pedra", 6, "gryffindor"));
+       equipos.get(0).getJugadores().add(new Golpeador("Petronila", 4, "gryffindor"));
+       equipos.add(new Equipo());
+       equipos.get(1).setCasa("slytherin");
+       equipos.get(1).getJugadores().add(new Guardian(7,"Pabla", 7, "slytherin"));
+       equipos.get(1).getJugadores().add(new Buscador(103.8,"juano", 1, "slytherin"));
+       equipos.get(1).getJugadores().add(new Cazadores(130.3,"pedro", 2, "slytherin"));
+       equipos.get(1).getJugadores().add(new Golpeador("Petronilooo", 6, "slytherin"));        
+       */
+
         while (true) {
             System.out.println("1.CRUD Equipo\n2.CRUE Jugadores\n3.Simulacion\n4.Salir");
             int op = leer.nextInt();
@@ -39,6 +53,7 @@ public class Lab4MarcelaRiveraDavidBendeck {
                         case 1:
                             System.out.println("Ingrese la casa (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)");
                             casa = leer.nextLine();
+                            casa.toLowerCase();
                             try {
                                 equipos.add(new Equipo(casa));
                             } catch (Exception_Casas ex) {
